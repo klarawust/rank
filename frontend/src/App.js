@@ -1,9 +1,7 @@
+import Logo from "./components/Logo";
+
 function App() {
-  return (
-    <div>
-      <p>hello</p>
-    </div>
-  );
+  return <Logo />;
 }
 
 export default App;
