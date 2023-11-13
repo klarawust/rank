@@ -1,34 +1,25 @@
 import Logo from "./components/Logo";
-import Button from "./components/Button";
+import JoinGameButton from "./components/buttons/JoinGameButton";
+import CreateGameButton from "./components/buttons/CreateGameButton";
 import InputField from "./components/InputField";
-
-let userName = "";
-
-function CreateGame() {
-  if (document.getElementById("nameInput").value === "") {
-    alert("Write your name before joining or starting a game.");
-  }
-  userName = document.getElementById("nameInput").value;
-  console.log(userName);
-}
-
-function JoinGame() {
-  if (document.getElementById("nameInput").value === "") {
-    alert("Write your name before joining or starting a game.");
-  }
-  userName = document.getElementById("nameInput").value;
-  console.log(userName);
-}
+import { useState } from "react";
 
 function App() {
+  const [page, setPage] = useState("homePage");
+  const [username, setUsername] = useState("");
+
   return (
     <div className="flex flex-col font-JosefinSans font-bold">
-      <Logo />
-      <InputField />
-      <div>
-        <Button onClick={CreateGame} name="New Game" />
-        <Button onClick={JoinGame} name="Join Game" />
-      </div>
+      {page === "homePage" && (
+        <>
+          <Logo />
+          <InputField username={username} setUsername={setUsername} />
+          <div>
+            <CreateGameButton setPage={setPage} username={username} />
+            <JoinGameButton setPage={setPage} username={username} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

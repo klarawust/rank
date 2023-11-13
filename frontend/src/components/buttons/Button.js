@@ -1,6 +1,6 @@
 function Button({ name, onClick }) {
   return (
-    <div className="flex justify-center text-3xl my-8 active:text-slate-500">
+    <div className="flex justify-center text-3xl my-8 active:text-red-700">
       <button onClick={onClick} type="button">
         {name}
       </button>

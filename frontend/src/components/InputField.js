@@ -1,4 +1,4 @@
-function InputField() {
+function InputField({ username, setUsername }) {
   return (
     <div className="flex justify-center mt-24">
       <input
@@ -6,6 +6,7 @@ function InputField() {
         type="text"
         placeholder="name"
         className="px-2 rounded bg-white"
+        onChange={(evt) => setUsername(evt.target.value)}
       ></input>
     </div>
   );
