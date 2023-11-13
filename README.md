@@ -6,7 +6,7 @@ I learned this game a couple of years ago, and I have played it uncountable time
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start` from the frontend-folder
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
