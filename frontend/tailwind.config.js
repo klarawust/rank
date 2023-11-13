@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         JosefinSlab: ['"Josefin Slab"', ...defaultTheme.fontFamily.sans],
+        JosefinSans: ['"Josefin Sans"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
