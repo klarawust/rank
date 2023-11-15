@@ -1,3 +1,5 @@
+//host
+
 const GameId = () => {
   return (
     <div>
