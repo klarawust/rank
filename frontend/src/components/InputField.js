@@ -1,6 +1,6 @@
 function InputField({ username, setUsername }) {
   return (
-    <div className="flex justify-center mt-24">
+    <div className="mt-24">
       <input
         id="nameInput"
         type="text"
