@@ -1,8 +1,11 @@
-import Button from "./Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function CreateGameButton({ setPage, page, username }) {
+const CreateGame = (username) => {
   const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  });
 
   const fetchData = async () => {
     try {
@@ -21,24 +24,16 @@ function CreateGameButton({ setPage, page, username }) {
     }
   };
 
-  const createGame = () => {
-    if (username === "") {
-      alert("Write your name before joining or starting a game.");
-    } else {
-      setPage("waitingroomPage");
-      fetchData();
-    }
-  };
   return (
     <div>
-      <Button onClick={createGame} name="New Game" />
-      {page === "waitingroomPage" && (
-        <>
+      <h1 className="text-2xl my-12">Your game</h1>
+      {data && data.message && (
+        <div>
           <h1>{data.message}</h1>
-        </>
+          <h1>{data.gameId}</h1>
+        </div>
       )}
     </div>
   );
-}
-
-export default CreateGameButton;
+};
+export default CreateGame;
