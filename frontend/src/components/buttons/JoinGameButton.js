@@ -5,12 +5,11 @@ function JoinGameButton({ setPage, username }) {
     if (username === "") {
       alert("Write your name before joining or starting a game.");
     } else {
-      console.log(username);
       setPage("joinGamePage");
     }
   };
   return (
-    <div>
+    <div className="mt-12">
       <Button onClick={JoinGame} name="Join Game" />
     </div>
   );

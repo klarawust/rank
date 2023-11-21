@@ -30,7 +30,6 @@ app.post("/createGame", jsonParser, (req, res) => {
     message:
       "Game created and added to list of games, creator of game added as a player.",
     newGame: game,
-    games: games,
   });
 });
 
@@ -40,25 +39,28 @@ app.post("/joinGame", jsonParser, (req, res) => {
   const gameIdInput = req.body.gameId;
 
   let gameFound = false;
+  let currentGame = {};
 
+  console.log(req.body);
   for (let i = 0; i < games.length; i++) {
     if (games[i].gameId.toString() === gameIdInput) {
       games[i].players.push(username);
       gameFound = true;
+      currentGame = games[i];
       break;
     }
   }
   console.log({ games });
+  console.log(currentGame);
 
   if (gameFound) {
     res.json({
       message: "Successfully added user to game",
-      games: games,
+      currentGame: currentGame,
     });
   } else {
     res.json({
       message: "Game does not exist",
-      games: games,
     });
   }
 });

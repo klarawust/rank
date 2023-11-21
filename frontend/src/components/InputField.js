@@ -1,12 +1,12 @@
-function InputField({ username, setUsername }) {
+function InputField({ setInput, placeholder }) {
   return (
     <div className="mt-24">
       <input
-        id="nameInput"
+        id="Input"
         type="text"
-        placeholder="name"
+        placeholder={placeholder}
         className="px-2 rounded bg-white"
-        onChange={(evt) => setUsername(evt.target.value)}
+        onChange={(evt) => setInput(evt.target.value)}
       ></input>
     </div>
   );
