@@ -1,9 +1,11 @@
 import bodyParser from "body-parser";
 import express from "express";
+import cors from "cors";
 
 const app = express();
 const jsonParser = bodyParser.json();
 const port = 8080;
+app.use(cors());
 
 const games = [];
 

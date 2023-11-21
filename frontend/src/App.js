@@ -21,6 +21,11 @@ function App() {
           </div>
         </>
       )}
+      {page === "waitingroomPage" && (
+        <>
+          <CreateGame username={username} />
+        </>
+      )}
     </div>
   );
 }
