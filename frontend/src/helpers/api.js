@@ -10,6 +10,13 @@ export const createGameRequest = async (setGameState, username) => {
     const jsonData = await response.json();
     setGameState(jsonData.newGame);
     console.log(jsonData.newGame);
+    console.log("now we are sending a new message");
+    /*
+    ws.sendMessage(`{ "createGame": {
+        "gameId": "${jsonData.newGame.gameId}",
+        "username": "${username}"
+      } }`);
+      */
   } catch (error) {
     console.error("Error fetching data", error);
   }

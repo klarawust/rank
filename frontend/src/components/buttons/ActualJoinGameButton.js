@@ -8,7 +8,7 @@ function ActualJoinGameButton({ setPage, gameId, username, setGameState }) {
     } else {
       console.log(gameId);
       joinGameRequest(gameId, username, setGameState);
-      setPage("lobby");
+      setPage("game");
     }
   };
   return (

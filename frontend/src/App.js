@@ -2,30 +2,20 @@ import Logo from "./components/Logo";
 import JoinGameButton from "./components/buttons/JoinGameButton";
 import CreateGameButton from "./components/buttons/CreateGameButton";
 import InputField from "./components/InputField";
-import Lobby from "./components/pages/Lobby";
 import JoinGame from "./components/pages/JoinGame";
 import { useState } from "react";
+import GameWrapper from "./components/GameWrapper";
+import { WebSocketProvider } from "./WebSocketContext";
 
 function App() {
   const [page, setPage] = useState("homePage");
   const [username, setUsername] = useState("");
   const [gameState, setGameState] = useState({
+    state: "",
     gameId: "",
     creator: "",
     players: [],
   });
-
-  /**
-   {
-            "gameId": 54482,
-            "creator": "klara",
-            "players": [
-                "klara",
-                "isak",
-                "aurora"
-            ]
-  },
-   */
 
   return (
     <div className="flex flex-col justify-center items-center font-JosefinSans font-bold">
@@ -36,8 +26,8 @@ function App() {
           <div>
             <CreateGameButton
               setPage={setPage}
-              username={username}
               setGameState={setGameState}
+              username={username}
             />
             <JoinGameButton setPage={setPage} username={username} />
           </div>
@@ -50,7 +40,15 @@ function App() {
           setGameState={setGameState}
         />
       )}
-      {page === "lobby" && <Lobby gameState={gameState} />}
+      {page === "game" && (
+        <WebSocketProvider username={username}>
+          <GameWrapper
+            gameState={gameState}
+            setGameState={setGameState}
+            username={username}
+          />
+        </WebSocketProvider>
+      )}
     </div>
   );
 }
